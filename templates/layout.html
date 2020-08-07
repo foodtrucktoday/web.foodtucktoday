@@ -1,0 +1,186 @@
+<!--
+  ~ Copyright (c) Foodtruck Today 2020.
+  ~ Code wrote by Romain ODET - romain@foodtrucktoday.Fr
+  -->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Balises meta -->
+    <title>{% block meta_title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta content="{% block meta_description %}{% endblock %}" name="description"/>
+    <meta content="fr" name="language"/>
+    <meta content="© Foodtruck Today 2020" name="copyright"/>
+    <meta content="Romain ODET" name="Author"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+    <!-- Ressources externes -->
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+
+    <link rel="preload" href="{{ url_for('static', filename='fonts/stylesheet.css') }}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='fonts/stylesheet.css') }}">
+    </noscript>
+
+    <link rel="preload" href="{{ url_for('static', filename='css/materialize.min.css') }}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/materialize.min.css') }}">
+    </noscript>
+
+    <link rel="preload" href="{{ url_for('static', filename='css/style.css') }}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </noscript>
+
+    <script src="{{ url_for('static', filename='js/lazysizes.min.js') }}" async></script>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/static/images/favicon/safari-pinned-tab.svg" color="#ff6b6b">
+    <link rel="shortcut icon" href="/static/images/favicon/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="Foodtruck Today">
+    <meta name="application-name" content="Foodtruck Today">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="/static/images/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+</head>
+<body>
+<div class="page-flexbox-wrapper">
+    <header>
+        <!-- Dropdown Structure -->
+        <ul id="day_dropdown" class="dropdown-content">
+            <li><a href="{{ url_for('Day_Selector', id="0") }}">Lundi</a></li>
+            <li><a href="{{ url_for('Day_Selector', id="1") }}">Mardi</a></li>
+            <li><a href="{{ url_for('Day_Selector', id="2") }}">Mercredi</a></li>
+            <li><a href="{{ url_for('Day_Selector', id="3") }}">Jeudi</a></li>
+            <li><a href="{{ url_for('Day_Selector', id="4") }}">Vendredi</a></li>
+        </ul>
+
+        <nav class="bittersweet-bgcolor navbar-fixed" role="navigation">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('index') }}" class="brand-logo center background-round">
+                    <img class="logo" src="{{ url_for('static', filename='images/logo_keppel.svg') }}" width="150"
+                         height="150" alt="Logo Foodtruck Today"
+                         onerror="this.removeAttribute('onerror'); this.src='{{ url_for('static', filename='images/logo_keppel.png') }}'"/>
+                </a>
+                <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="https://foodtrucktoday.fr"><i class="material-icons left">launch</i>Site principal</a>
+                    </li>
+                    <li>
+                        <a href="https://foodtrucktoday.fr/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgyIiwidG9nZ2xlIjpmYWxzZX0%3D">
+                            <i class="material-icons left">android</i>Android</a></li>
+                    <li>
+                        <a href="https://foodtrucktoday.fr/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgyIiwidG9nZ2xlIjpmYWxzZX0%3D">
+                            <i class="material-icons left">phone_iphone</i>iOS</a></li>
+                </ul>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('index') }}"><i class="material-icons left">schedule</i>Foodtrucks du
+                        jour</a></li>
+                    <li><a class="dropdown-trigger" href="#!" data-target="day_dropdown"><i class="material-icons left">kitchen</i>Selécteur
+                        de jour<i
+                                class="material-icons right">arrow_drop_down</i></a></li>
+                </ul>
+            </div>
+        </nav>
+        <ul id="slide-out" class="sidenav">
+            <li><a href="{{ url_for('index') }}"><i class="material-icons left">fastfood</i>Foodtrucks du jour</a></li>
+            <li class="no-padding">
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a class="collapsible-header"><i class="material-icons left">kitchen</i>Sélécteur de jour<i
+                                class="material-icons">arrow_drop_down</i></a>
+                        <div class="collapsible-body">
+                            <ul>
+                                <li><a href="{{ url_for('Day_Selector', id="0") }}">Lundi</a></li>
+                                <li><a href="{{ url_for('Day_Selector', id="1") }}">Mardi</a></li>
+                                <li><a href="{{ url_for('Day_Selector', id="2") }}">Mercredi</a></li>
+                                <li><a href="{{ url_for('Day_Selector', id="3") }}">Jeudi</a></li>
+                                <li><a href="{{ url_for('Day_Selector', id="4") }}">Vendredi</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="divider"></div>
+            </li>
+            <li><a href="https://foodtrucktoday.fr"><i class="material-icons left">launch</i>Site principal</a></li>
+            <li>
+                <a href="https://foodtrucktoday.fr/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgyIiwidG9nZ2xlIjpmYWxzZX0%3D">Application
+                    <i class="material-icons left">android</i>Android</a></li>
+            <li>
+                <a href="https://foodtrucktoday.fr/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgyIiwidG9nZ2xlIjpmYWxzZX0%3D">Application
+                    <i class="material-icons left">phone_iphone</i>iOS</a></li>
+        </ul>
+    </header>
+    <main class="margin-main">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer class="page-footer bittersweet-bgcolor footer-fixed">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Le concept</h5>
+                    <p class="grey-text text-lighten-4">Foodtruck Today c’est l’appli idéale pour trouver votre repas du
+                        midi sur le parc du puy d’or à Limonest !<br>
+                        Notre liste de camions ambulants sélectionnés par notre équipe est actualisée tous les jours,
+                        vous promettant la présence de votre camion préféré à l’endroit indiqué !</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Liens utiles</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://foodtrucktoday.fr">Site principal</a></li>
+                        <li><a class="grey-text text-lighten-3"
+                               href="https://foodtrucktoday.fr/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgyIiwidG9nZ2xlIjpmYWxzZX0%3D">Application
+                            iOS</a></li>
+                        <li><a class="grey-text text-lighten-3"
+                               href="https://foodtrucktoday.fr/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjgyIiwidG9nZ2xlIjpmYWxzZX0%3D">Application
+                            android</a></li>
+                        <li><a class="grey-text text-lighten-3"
+                               href="http://don.foodtrucktoday.fr">Nous soutenir</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 Foodtruck Today
+                <a class="grey-text text-lighten-4 right"
+                   href="/static/images/docs/CGU20200518.pdf">CGU</a>
+            </div>
+        </div>
+    </footer>
+</div>
+<script src="https://kit.fontawesome.com/66899e7a40.js" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/materialize.min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.dropdown-trigger').dropdown();
+        $('.sidenav').sidenav();
+        $('.collapsible').collapsible();
+    });
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register("./service-worker.js").then(function (registration) {
+                // Registration was successful
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            }, function (err) {
+                // registration failed :(
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+</script>
+</body>
+</html>

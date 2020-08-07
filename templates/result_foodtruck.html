@@ -1,0 +1,76 @@
+{% if foodtruck is defined %}
+    <div class="container">
+        <div class="row">
+            {% for a in foodtruck %}
+                <div class="col s13 m6">
+                    <div class="card">
+                        <div class="card-image">
+                            <img data-src="https://static.foodtrucktoday.fr/images/foodtruck/{{ a['f_id'] }}.png"
+                                 class="lazyload {% if a['active'] == 0 %}tint{% endif %}"
+                                 alt="Foodtruck {{ a['f_name'] }} sur Foodtruck today, le site pour trouver son repas de midi à Limonest">
+                            <h2 class="card-title">{{ a['f_name'] }} {% if a['active'] == 0 %}(Absent){% endif %}</h2>
+                        </div>
+                        <div class="card-content">
+                            <span><i class="material-icons">restaurant_menu</i> {{ a["c_name"] }}</span>
+                            <hr>
+                            <p>Le foodtruck «<strong style="text-transform: lowercase">{{ a['f_name'] }}</strong>» est
+                                <strong>{% if a['active'] == 0 %}
+                                    absent{% else %}présent{% endif %}</strong> aujourd'hui à l'emplacement
+                                <strong>{{ a["pl_name"] }}</strong> !<br>
+                                {{ a['f_name'] }} est un foodtruck réalisant une
+                                cuisine <strong style="text-transform: lowercase">{{ a["c_name"] }}</strong> ! Vous
+                                pouvez localiser ce foodtruck pour
+                                votre repas de midi en cliquant sur l'icône épingle.</p>
+                        </div>
+                        <div class="card sticky-action">
+                            <div class="card-action">
+                                {% if a["f_website"] != '' %}
+                                    <a class="btn-floating bittersweet-bgcolor" href="{{ a["f_website"] }}"
+                                       target="_blank"><i class="material-icons">language</i></a>{% endif %}
+                                {% if a["f_phone"] != '' %}
+                                    <a class="btn-floating bittersweet-bgcolor" href="tel:+33{{ a["f_phone"] }}"
+                                       target="_blank"><i class="material-icons">call</i></a>{% endif %}
+                                {% if a["f_facebook"] != '' %}
+                                    <a class="btn-floating bittersweet-bgcolor" href="{{ a['f_facebook'] }}"
+                                       target="_blank"><i class="fab fa-facebook-f"></i></a>{% endif %}
+                                <a class="btn-floating bittersweet-bgcolor" target="_blank"
+                                   href="https://www.google.fr/maps/place/{{ a['pl_latitude'] }}+{{ a['pl_longitude'] }}"><i
+                                        class="material-icons">room</i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col s13 m6">
+                <div class="card">
+                    <div class="card-image">
+                        <img data-src="https://foodtrucktoday.fr/wp-content/uploads/2020/06/Image-play-store_Plan-de-travail-1.png"
+                             class="lazyload "
+                             alt="Soutenez notre action">
+                    </div>
+                    <div class="card-content">
+                        <H2 style="font-size: 1.3em; margin: 0 0 0 0;">Soutenez notre projet !</H2>
+                        <hr>
+                        <p>Nous avons investi beaucoup de temps dans ce projet, à la fois pour pouvoir vous proposez des
+                            applications modernes et agréables mais aussi pour avoir des informations à jour.
+                            <br>
+                            Nous sommes 3 étudiant-e-s et avons réalisé-e-s ce projet durant notre temps personnel et
+                            y'avons
+                            investi-e-s beaucoup de temps!
+                            <br>
+                            Même la plus petite contribution nous fait vivre et permet à ce projet de survire !
+                        </p>
+                    </div>
+                    <div class="card sticky-action">
+                        <div class="card-action">
+                            <a class="bittersweet-color" href="http://don.foodtrucktoday.fr/" target="_blank">Nous
+                                soutenir via Paypal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <h1 style="text-align: center!important;">Pas de foodtruck présent aujourd'hui !</h1>
+{% endif %}

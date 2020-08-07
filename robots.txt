@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /fullscreen/
+Disallow: /connexion/
+Disallow: /creation/

@@ -1,0 +1,111 @@
+/*
+ * Copyright (c) Foodtruck Today 2020.
+ * Code wrote by Romain ODET - romain@foodtrucktoday.Fr
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'BERNIER Distressed';
+    font-weight: normal;
+    font-style: normal;
+    text-transform: lowercase;
+}
+
+.card-title {
+    font-family: 'BERNIER Distressed';
+    font-weight: normal;
+    font-style: normal;
+    text-transform: lowercase;
+}
+
+p, div, span {
+    font-family: 'Manrope';
+    font-weight: 300;
+    font-style: normal;
+}
+
+b, strong {
+    font-family: 'Manrope';
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.bittersweet-color {
+    color: #ff6b6b;
+!important;
+}
+
+.bittersweet-bgcolor {
+    background-color: #ff6b6b;
+!important;
+}
+
+.keppel-color {
+    color: #39b3a0;
+!important;
+}
+
+.keppel-bgcolor {
+    background-color: #39b3a0;
+!important;
+}
+
+.background-round {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    background-color: #ff6b6b;
+
+    -webkit-box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.14), 0 4px 2px -2px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.14), 0 4px 2px -2px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 50em) {
+    .margin-main {
+        margin-top: 150px;
+    }
+}
+
+@media (min-width: 50em) {
+    .margin-main {
+        margin-top: 100px;
+    }
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px; /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.tint {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+}

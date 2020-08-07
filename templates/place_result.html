@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block meta_title %}
+    Tous les foodtrucks à {{ place['pl_name'] }} sur Foodtruck Today
+{% endblock %}
+
+{% block meta_description %}
+    Sur FoodtruckToday, vous aller pouvoir trouver tous les foodtrucks présents à {{ place['pl_name'] }} !{% endblock %}
+
+{% block content %}
+    {% include "result_foodtruck.html" %}
+{% endblock %}

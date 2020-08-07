@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block meta_title %}
+    Planning des foodtrucks le
+    {% if request.path == '/day/0/' %}Lundi
+    {% elif request.path == '/day/1/' %}Mardi
+    {% elif request.path == '/day/2/' %}Mercredi
+    {% elif request.path == '/day/3/' %}Jeudi
+    {% elif request.path == '/day/4/' %}Vendredi
+    {% elif request.path == '/day/5/' %}Samedi
+    {% elif request.path == '/day/6/' %}Dimanche
+    {% else %}meilleur jour de la semaine
+    {% endif %}sur Foodtruck Today !
+{% endblock %}
+
+{% block meta_description %}La version web de Foodtruck Today vous permet de trouver le foodtruck idéale le
+    {% if request.path == '/day/0/' %}Lundi
+    {% elif request.path == '/day/1/' %}Mardi
+    {% elif request.path == '/day/2/' %}Mercredi
+    {% elif request.path == '/day/3/' %}Jeudi
+    {% elif request.path == '/day/4/' %}Vendredi
+    {% elif request.path == '/day/5/' %}Samedi
+    {% elif request.path == '/day/6/' %}Dimanche
+    {% else %}meilleur jour de la semaine
+    {% endif %}sur la techlid de Limonest !{% endblock %}
+
+{% block content %}
+    {% include "result_foodtruck.html" %}
+{% endblock %}
